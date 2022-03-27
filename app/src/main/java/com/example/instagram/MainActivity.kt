@@ -38,6 +38,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         //queryPosts()
+
+        findViewById<Button>(R.id.btnLogout).setOnClickListener{
+            ParseUser.logOut()
+            logout()
+        }
     }
 
     fun submitPost(description: String, user: ParseUser, file: File){
@@ -56,6 +61,17 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    fun logout(){
+
+        goLoginActivity()
+    }
+
+    private fun goLoginActivity(){
+        val intent = Intent(this@MainActivity, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     fun queryPosts(){
