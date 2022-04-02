@@ -29,6 +29,7 @@ class ComposeFragment : Fragment() {
     val photoFileName = "photo.jpg"
     var photoFile: File? = null
     lateinit var ivPreview: ImageView
+    val CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -88,7 +89,7 @@ class ComposeFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == MainActivity.CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
+        if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
             if (resultCode == AppCompatActivity.RESULT_OK) {
                 // by this point we have the camera photo on disk
                 val takenImage = BitmapFactory.decodeFile(photoFile!!.absolutePath)
@@ -123,7 +124,7 @@ class ComposeFragment : Fragment() {
             // So as long as the result is not null, it's safe to use the intent.
             if (intent.resolveActivity(requireContext().packageManager) != null) {
                 // Start the image capture intent to take photo
-                startActivityForResult(intent, MainActivity.CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE)
+                startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE)
             }
         }
     }

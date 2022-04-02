@@ -1,8 +1,29 @@
+
+
 # Project 3 - *Instagram Basic*
+
+# User Stories
+
+The following **required** functionality is completed:
+
+- [ ] User can view the last 20 posts submitted to "Instagram".
+- [x] The user should switch between different tabs - viewing all posts (feed view), compose (capture photos form camera) and profile tabs (posts made) using fragments and a Bottom Navigation View. (2 points)
+- [ ] User can pull to refresh the last 20 posts submitted to "Instagram"
+
+Here is walkthroughs of implemented user stories:
+
+<img src='partial.gif' width='' alt='Video Walkthrough 1' />
+
+## Notes
+
+Did not have time to complete the required tasks. Will complete and update later
+
 
 **Instagram Basic** is a photo sharing app similar to Instagram but using Parse as its backend.
 
 Time spent: **10** hours spent in total
+
+
 
 ## User Stories
 

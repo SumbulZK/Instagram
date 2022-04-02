@@ -25,42 +25,35 @@ import java.io.File
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val fragmentManager : FragmentManager = supportFragmentManager
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+        val fragmentManager : FragmentManager = supportFragmentManager
         findViewById<BottomNavigationView>(R.id.bottom_navigation).setOnItemSelectedListener {
             item ->
             lateinit var fragmentToShow: Fragment
-            when (item.itemId){
-                R.id.action_home ->{
-                    fragmentToShow = FeedFragment()
-                    Log.i(TAG, "Home")
+                when (item.itemId){
+                    R.id.action_home ->{
+                        fragmentToShow = FeedFragment()
+                        Log.i(TAG, "Home")
+                    }
+                    R.id.action_compose -> fragmentToShow = ComposeFragment()
+                    R.id.action_profile ->{
+                        Log.i(TAG, "Profile")
+                        fragmentToShow = ProfileFragment()
+                    }
                 }
-
-                R.id.action_compose -> fragmentToShow = ComposeFragment()
-
-
-
-                R.id.action_profile ->{
-                    Log.i(TAG, "Profile")
-                    fragmentToShow = ProfileFragment()
-                }
-            }
             if (fragmentToShow != null) {
                 fragmentManager.beginTransaction().replace(R.id.framelayout, fragmentToShow).commit()
             }
-
-
-
 
             true
 
         }
 
         // Set default selection
-        findViewById<BottomNavigationView>(R.id.bottom_navigation).selectedItemId = R.id.action_compose
+        findViewById<BottomNavigationView>(R.id.bottom_navigation).selectedItemId = R.id.action_home
 
 
         //queryPosts()
@@ -106,7 +99,7 @@ class MainActivity : AppCompatActivity() {
     companion object{
         const val TAG = "Main Activity"
         val APP_TAG = "MyCustomApp"
-        val CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034
+
 
     }
 }
